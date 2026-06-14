@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.portfolio {
+    background-color: lightblue;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.projects {
+    background-color: lightgreen;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.skills {
+    background-color: rgb(219, 219, 65);
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.contact {
+    background-color: lightpink;
+    padding: 15px;
+}
+
+img {
+    border-radius: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+}
+
+button {
+    background-color: blue;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+}
