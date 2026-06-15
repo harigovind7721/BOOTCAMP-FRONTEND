@@ -1,45 +1,157 @@
 <!doctype html>
-<html>
-  <title>Hari</title>
+<html lang="en">
   <head>
-    <link rel="stylesheet" href="bootcamp.css">
-    <h1>My Portfolio</h1>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hari | Portfolio</title>
+    <link rel="stylesheet" href="bootcamp.css" />
   </head>
-  <div class="portfolio">
   <body>
-    Welcome to my portfolio page.Im a good web developer learning html 
+    <header>
+      <nav class="navbar">
+        <span class="nav-logo">Hari.</span>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </header>
 
-    <p><h1>About me</h1></p>
-    <img src="profile.jpeg" alt="My profile" width="300" height="300">
-    <p>Hello! i build simple web pages using html tags,including lists and forms</p>
-    </div>
-    <div class="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li>Personal portfolio</li>
-      <li> Simple landing page</li>
-      <li> Contact Form Example</li>
-    </ul>
-    </div>
-    <div class="skills">
-    <h2>Skills</h2>
-    <ol>
-      <li>HTML</li>
-      <li>CSS</li>
-      <li>JAVASCRIPT</li>
-    </ol>
-    </div>
-    <div class="contact">
-    <h2>Contact</h2>
-    <form>
-      <label for="name">Name</label><br>
-      <input type="text" id="name"  name="name" required><br><br>
+    <main>
+      <!-- About / Hero -->
+      <section class="portfolio" id="about">
+        <div class="container about-grid">
+          <div class="about-text">
+            <p class="eyebrow">Welcome to my portfolio</p>
+            <h1>Hi, I'm <span class="accent">Hari</span></h1>
+            <p class="about-bio">
+              I'm a web developer learning to build simple web pages using HTML,
+              CSS, and JavaScript — including lists, forms, and layouts.
+            </p>
+          </div>
+          <div class="about-img">
+            <img src="profile.jpeg" alt="Hari's profile photo" />
+          </div>
+        </div>
+      </section>
 
-       <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
+      <!-- Projects -->
+      <section class="projects" id="projects">
+        <div class="container">
+          <h2>Projects</h2>
+          <div class="card-grid">
+            <div class="card">
+              <div class="card-icon">🗂️</div>
+              <h3>Personal Portfolio</h3>
+              <p>A portfolio site built from scratch using HTML and CSS.</p>
+            </div>
+            <div class="card">
+              <div class="card-icon">🌐</div>
+              <h3>Simple Landing Page</h3>
+              <p>
+                A clean landing page layout with sections and call-to-action.
+              </p>
+            </div>
+            <div class="card">
+              <div class="card-icon">📬</div>
+              <h3>Contact Form Example</h3>
+              <p>A styled form with validation using HTML form elements.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <button type="submit">Send</button>
-    </form>
+      <!-- Skills -->
+      <section class="skills" id="skills">
+        <div class="container">
+          <h2>Skills</h2>
+          <div class="skills-grid">
+            <div class="skill-badge">
+              <span class="skill-num">01</span>
+              <span class="skill-name">HTML</span>
+            </div>
+            <div class="skill-badge">
+              <span class="skill-num">02</span>
+              <span class="skill-name">CSS</span>
+            </div>
+            <div class="skill-badge">
+              <span class="skill-num">03</span>
+              <span class="skill-name">JavaScript</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="contact" id="contact">
+        <div class="container contact-wrap">
+          <h2>Contact</h2>
+          <p class="contact-sub">Have something to say? Drop me a message.</p>
+          <form class="contact-form" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="your@email.com"
+                required
+              />
+            </div>
+            <button type="submit" class="btn-send">Send Message</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 Hari · Built with HTML &amp; CSS</p>
+    </footer>
+
+    <script>
+      // Hamburger menu toggle
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.querySelector(".nav-links");
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+        hamburger.classList.toggle("active");
+      });
+
+      // Close menu when a link is clicked
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+          hamburger.classList.remove("active");
+        });
+      });
+
+      // Simple form feedback
+      function handleSubmit(e) {
+        e.preventDefault();
+        const btn = e.target.querySelector("button");
+        btn.textContent = "Sent ✓";
+        btn.style.background = "#22c55e";
+        setTimeout(() => {
+          btn.textContent = "Send Message";
+          btn.style.background = "";
+          e.target.reset();
+        }, 2500);
+      }
+    </script>
   </body>
-  </div>
 </html>
